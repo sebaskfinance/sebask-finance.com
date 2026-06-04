@@ -98,8 +98,8 @@ section{padding:5.5rem 3rem;}
 
 /* HERO */
 .hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding-top:6rem;background:var(--white);position:relative;overflow:hidden;
+  min-height:auto;display:flex;align-items:center;
+  padding-top:6rem;padding-bottom:3rem;background:var(--white);position:relative;overflow:hidden;
 }
 .hero-glow{
   position:absolute;top:-80px;right:-80px;
@@ -345,12 +345,26 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 3r
   .nav-links{display:none;}
   .nav-hamburger{display:flex;}
   .nav-cta{display:none!important;}
-  section{padding:4rem 1.5rem;}
+  .disclaimer{font-size:10.5px;padding:.5rem 1rem;}
+  section{padding:3rem 1.5rem;}
+  .hero{padding-top:5rem;padding-bottom:2rem;}
+  .hero h1{font-size:36px;letter-spacing:-1.5px;}
+  .hero-sub{font-size:14px;}
   .hero-inner,.capital-grid,.tarifs-grid,.contact-grid,.dark-block{grid-template-columns:1fr;}
   .cards-grid,.broker-grid{grid-template-columns:1fr;}
+  .card{padding:1.5rem;}
+  .copy-step{flex-direction:column;gap:1rem;}
+  .risk-step{padding:1.2rem;}
+  .risk-pct{font-size:20px;}
   footer{padding:2rem 1.5rem;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
-  .cta-banner{margin:0 1.5rem 2rem;padding:3rem 1.5rem;}
+  .footer-links{flex-wrap:wrap;gap:1rem;}
+  .cta-banner{margin:0 1.5rem 2rem;padding:2.5rem 1.5rem;}
+  .cta-banner h2{font-size:26px;}
+  .tarifs-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:repeat(3,1fr);}
+  .dark-block{padding:2rem 1.5rem;}
+  h2{font-size:28px!important;letter-spacing:-1px!important;}
 }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -389,7 +403,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 3r
   <a href="#" class="nav-mobile-cta" onclick="showPage('contact');toggleMenu()">Rejoindre →</a>
 </div>
 
-<div class="disclaimer">⚠️ &nbsp;Le trading sur le Forex implique un risque de perte en capital. Les performances passées ne présagent pas des performances futures.</div>
+<div class="disclaimer">⚠️ &nbsp;Trading Forex : risque de perte en capital. Performances passées non garanties.</div>
 
 <!-- ACCUEIL -->
 <div id="page-accueil" class="page active">
@@ -427,7 +441,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 3r
     </div>
   </section>
 
-  <section style="background:var(--bg);">
+  <section style="background:var(--bg);padding:5rem 3rem;">
     <div class="container">
       <div class="section-tag">Ce qui me différencie</div>
       <h2 style="font-size:36px;font-weight:800;letter-spacing:-1.2px;">Un modèle rare dans le copy trading</h2>
