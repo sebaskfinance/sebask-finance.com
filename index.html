@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebask Finance, Copy Trading Forex EUR/USD</title>
+<meta name="description" content="Copy trading professionnel sur EUR/USD. Méthode Wyckoff pure, gestion du risque structurée. Vos fonds restent 100% sous votre contrôle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232361AD'/%3E%3Ctext x='16' y='23' font-family='Arial Black,sans-serif' font-size='16' font-weight='900' fill='white' text-anchor='middle'%3ESF%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#2361AD">
+<meta property="og:title" content="Sebask Finance — Copy Trading Forex EUR/USD">
+<meta property="og:description" content="Copy trading professionnel sur EUR/USD. Méthode Wyckoff pure. Vos fonds restent 100% sous votre contrôle.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sebask-finance.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sebask Finance — Copy Trading Forex EUR/USD">
+<meta name="twitter:description" content="Copy trading professionnel sur EUR/USD. Méthode Wyckoff pure. Vos fonds restent 100% sous votre contrôle.">
+<style>
+:root {
+  --blue:       #2361AD;
+  --blue-light: #EAF0FB;
+  --blue-mid:   #C5D8F5;
+  --blue-dark:  #1a4d8f;
+  --black:      #0f0f0f;
+  --white:      #ffffff;
+  --bg:         #f7f6f2;
+  --bg2:        #eeecea;
+  --text:       #0f0f0f;
+  --text2:      #555555;
+  --text3:      #888888;
+  --border:     rgba(15,15,15,0.10);
+  --border2:    rgba(35,97,173,0.25);
+  --amber:      #d4922a;
+  --red:        #c05050;
+  --green-badge:#2a7d4f;
+  --radius:     16px;
+  --radius-sm:  10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.7;font-size:16px;}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.15;}
+a{text-decoration:none;color:inherit;}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--blue-mid);border-radius:3px;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 3rem;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.5px;color:var(--black);}
+.nav-logo span{color:var(--blue);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:13.5px;color:var(--text2);transition:color .2s;}
+.nav-links a:hover{color:var(--black);}
+.nav-cta{
+  background:var(--black);color:var(--white);
+  border:none;padding:9px 22px;
+  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;
+  border-radius:50px;cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:var(--blue);transform:translateY(-1px);}
+
+/* DISCLAIMER */
+.disclaimer{
+  background:rgba(35,97,173,0.06);
+  border-bottom:1px solid rgba(35,97,173,0.15);
+  text-align:center;padding:.7rem 2rem;
+  font-size:11.5px;color:var(--blue);letter-spacing:.2px;
+}
+
+/* PAGES */
+.page{display:none;}
+.page.active{display:block;}
+
+/* SECTIONS */
+section{padding:5.5rem 3rem;}
+.container{max-width:1080px;margin:0 auto;}
+.section-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue);background:var(--blue-light);
+  padding:5px 14px;border-radius:50px;margin-bottom:1.2rem;
+  border:1px solid var(--blue-mid);
+}
+.section-tag::before{content:'';width:5px;height:5px;background:var(--blue);border-radius:50%;}
+.lead{font-size:16px;color:var(--text2);line-height:1.8;max-width:580px;margin-top:.8rem;}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:6rem;background:var(--white);position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:-80px;right:-80px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(35,97,173,0.06) 0%,transparent 65%);
+  pointer-events:none;border-radius:50%;
+}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:1.4rem;}
+.hero h1{font-size:clamp(38px,5vw,60px);font-weight:800;letter-spacing:-2px;margin-bottom:1.4rem;color:var(--black);line-height:1.05;}
+.hero h1 em{font-style:normal;color:var(--blue);}
+.hero-sub{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2.5rem;max-width:460px;font-weight:300;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--black);color:var(--white);
+  border:none;padding:13px 28px;
+  font-family:'Inter',sans-serif;font-size:14.5px;font-weight:500;
+  border-radius:50px;cursor:pointer;display:inline-block;
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:var(--blue);transform:translateY(-2px);}
+.btn-outline{
+  background:transparent;color:var(--black);
+  border:1.5px solid var(--border);padding:13px 28px;
+  font-family:'Inter',sans-serif;font-size:14.5px;font-weight:400;
+  border-radius:50px;cursor:pointer;display:inline-block;
+  transition:border-color .2s,color .2s,transform .15s;
+}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+
+/* STATS */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+}
+.stat-box{background:var(--bg);padding:2rem 1.8rem;transition:background .2s;}
+.stat-box:hover{background:var(--blue-light);}
+.stat-val{font-family:'Inter',sans-serif;font-size:38px;font-weight:800;color:var(--black);letter-spacing:-2px;line-height:1;}
+.stat-val span{color:var(--blue);}
+.stat-lbl{font-size:12.5px;color:var(--text3);margin-top:5px;}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--blue-mid);box-shadow:0 12px 40px rgba(35,97,173,0.08);}
+.card:hover::before{transform:scaleX(1);}
+.card-num{font-family:'Inter',sans-serif;font-size:44px;font-weight:800;color:var(--bg2);letter-spacing:-2px;line-height:1;margin-bottom:.9rem;}
+.card h3{font-size:15.5px;font-weight:600;margin-bottom:.5rem;color:var(--black);}
+.card p{font-size:13.5px;color:var(--text2);line-height:1.75;}
+
+/* RISK */
+.risk-steps{display:flex;flex-direction:column;gap:8px;margin-top:2.5rem;}
+.risk-step{
+  display:flex;align-items:center;gap:1.8rem;
+  padding:1.6rem 2rem;background:var(--bg);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  transition:background .2s,border-color .2s;
+}
+.risk-step:hover{background:var(--blue-light);border-color:var(--blue-mid);}
+.risk-badge{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  flex-shrink:0;letter-spacing:.5px;
+}
+.badge-green{background:#e6f4ec;color:#2a7d4f;}
+.badge-amber{background:#fef3e2;color:#b45309;}
+.badge-red{background:#fde8e8;color:#b91c1c;}
+.risk-info{flex:1;}
+.risk-info strong{display:block;color:var(--black);font-size:15px;font-weight:600;margin-bottom:3px;}
+.risk-info span{color:var(--text3);font-size:13px;}
+.risk-pct{font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--bg2);letter-spacing:-1px;}
+
+/* CAPITAL */
+.capital-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.capital-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;}
+.capital-card.featured{background:var(--blue);border-color:var(--blue);}
+.capital-card.featured h3,.capital-card.featured .cap-val{color:var(--white);}
+.capital-card.featured p,.capital-card.featured .cap-note{color:rgba(255,255,255,0.7);}
+.capital-card h3{font-size:17px;font-weight:600;margin-bottom:.8rem;}
+.capital-card p{font-size:13.5px;color:var(--text2);margin-bottom:1.5rem;line-height:1.75;}
+.cap-val{font-family:'Inter',sans-serif;font-size:44px;font-weight:800;color:var(--blue);letter-spacing:-2px;}
+.cap-note{font-size:12px;color:var(--text3);margin-top:4px;}
+
+/* STEPS */
+.copy-steps{display:flex;flex-direction:column;margin-top:2.5rem;}
+.copy-step{display:flex;gap:2rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border);}
+.copy-step:last-child{border-bottom:none;}
+.step-num{
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;
+  color:var(--blue);background:var(--blue-light);
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  border:1px solid var(--blue-mid);
+}
+.copy-step h3{font-size:16px;font-weight:600;margin-bottom:5px;color:var(--black);}
+.copy-step p{font-size:13.5px;color:var(--text2);line-height:1.75;}
+
+/* TARIFS */
+.tarifs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.tarif-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;position:relative;}
+.tarif-card.featured{border:1.5px solid var(--blue);}
+.featured-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:var(--white);
+  font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 16px;border-radius:50px;white-space:nowrap;
+}
+.tarif-label{font-size:13px;color:var(--text3);margin-bottom:.4rem;}
+.tarif-price{font-family:'Inter',sans-serif;font-size:52px;font-weight:800;color:var(--black);letter-spacing:-2px;line-height:1;margin:1rem 0 .3rem;}
+.tarif-price sup{font-size:22px;vertical-align:top;margin-top:10px;letter-spacing:0;}
+.tarif-price sub{font-size:15px;color:var(--text3);letter-spacing:0;}
+.tarif-sublabel{font-size:13px;color:var(--text2);margin-bottom:1.8rem;}
+.tarif-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:2rem;}
+.tarif-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text2);}
+.tarif-features li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:2px;}
+.tarif-note{background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:var(--radius-sm);padding:1rem 1.2rem;font-size:13px;color:var(--blue);line-height:1.7;margin-top:1rem;}
+.example-box{background:var(--bg);border-radius:var(--radius-sm);padding:1rem 1.2rem;font-size:13px;color:var(--text2);line-height:1.7;margin-top:1.5rem;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:2.5rem;align-items:start;}
+.contact-info h3{font-size:20px;font-weight:700;margin-bottom:.8rem;}
+.contact-info p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:1rem;}
+.contact-methods{display:flex;flex-direction:column;gap:.8rem;margin-top:1.5rem;}
+.contact-method{
+  display:flex;align-items:center;gap:1rem;
+  padding:.9rem 1.1rem;background:var(--bg);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  font-size:13.5px;transition:background .2s,border-color .2s;
+}
+.contact-method:hover{background:var(--blue-light);border-color:var(--blue-mid);}
+.contact-icon{width:38px;height:38px;border-radius:50%;background:var(--blue-light);border:1px solid var(--blue-mid);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.contact-method-name{font-weight:500;color:var(--black);font-size:13.5px;}
+.contact-method-detail{font-size:12px;color:var(--text3);}
+.avail-box{margin-top:1.8rem;padding:1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);}
+.avail-box p:first-child{font-size:12.5px;font-weight:600;color:var(--black);margin-bottom:4px;}
+.avail-box p:last-child{font-size:13px;color:var(--text3);line-height:1.7;}
+.contact-form{display:flex;flex-direction:column;gap:.9rem;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group label{font-size:12.5px;font-weight:500;color:var(--text2);}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:11px 14px;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  font-family:'Inter',sans-serif;font-size:14px;color:var(--black);
+  transition:border-color .2s,background .2s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue);background:var(--white);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{background:var(--black);color:var(--white);border:none;padding:13px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:500;border-radius:50px;cursor:pointer;transition:background .2s;}
+.form-submit:hover{background:var(--blue);}
+.form-note{font-size:11.5px;color:var(--text3);text-align:center;}
+
+/* MENTIONS */
+.mentions-content{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:3rem;margin-top:2rem;}
+.mentions-content h3{font-size:15px;font-weight:600;color:var(--black);margin:2rem 0 .7rem;padding-top:2rem;border-top:1px solid var(--border);}
+.mentions-content h3:first-child{margin-top:0;padding-top:0;border-top:none;}
+.mentions-content p,.mentions-content li{font-size:13.5px;color:var(--text2);line-height:1.85;}
+.mentions-content ul{padding-left:1.4rem;margin-top:.4rem;}
+.mentions-content li{margin-bottom:4px;}
+.mentions-content a{color:var(--blue);}
+.warning-box{background:#fffbeb;border-left:2px solid var(--amber);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1.1rem 1.4rem;margin:1rem 0;}
+.warning-box p{color:#92400e;font-size:13px;}
+
+/* CTA BANNER */
+.cta-banner{background:var(--black);border-radius:var(--radius);text-align:center;padding:5rem 3rem;margin:0 3rem 3rem;}
+.cta-banner h2{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--white);margin-bottom:.8rem;}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto;}
+.btn-white{background:var(--white);color:var(--black);border:none;padding:13px 28px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:500;border-radius:50px;cursor:pointer;display:inline-block;transition:background .2s,color .2s;}
+.btn-white:hover{background:var(--blue);color:var(--white);}
+
+/* DONT LIST */
+.dark-block{background:var(--black);border-radius:var(--radius);padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem;}
+.dont-list{display:flex;flex-direction:column;gap:.7rem;}
+.dont-item{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);}
+.dont-item .x{color:#e05555;font-size:15px;flex-shrink:0;}
+.dont-item span{font-size:13.5px;color:rgba(255,255,255,0.7);}
+
+/* BROKER */
+.broker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.broker-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:transform .2s,border-color .2s;}
+.broker-card:hover{transform:translateY(-3px);border-color:var(--blue-mid);}
+.broker-icon{font-size:28px;margin-bottom:.9rem;}
+.broker-card h3{font-size:15px;font-weight:600;margin-bottom:.4rem;color:var(--black);}
+.broker-card p{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 3rem;}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:15px;color:var(--black);}
+.footer-logo span{color:var(--blue);}
+.footer-links{display:flex;gap:1.8rem;}
+.footer-links a{color:var(--text3);font-size:12.5px;transition:color .2s;}
+.footer-links a:hover{color:var(--blue);}
+.footer-copy{width:100%;text-align:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:11.5px;color:var(--text3);line-height:1.8;}
+
+/* HAMBURGER */
+.nav-hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.nav-hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--black);border-radius:2px;
+  transition:all .3s;
+}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-mobile{
+  display:none;position:fixed;top:57px;left:0;right:0;
+  background:var(--white);border-bottom:1px solid var(--border);
+  z-index:199;flex-direction:column;padding:1rem 1.5rem 1.5rem;gap:.2rem;
+  box-shadow:0 8px 30px rgba(0,0,0,0.08);
+}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{
+  font-size:15px;color:var(--text2);padding:.7rem 0;
+  border-bottom:1px solid var(--border);transition:color .2s;
+}
+.nav-mobile a:last-child{border-bottom:none;}
+.nav-mobile a:hover{color:var(--black);}
+.nav-mobile-cta{
+  background:var(--black)!important;color:var(--white)!important;
+  border-radius:50px!important;text-align:center;
+  padding:12px!important;margin-top:.8rem;
+  border-bottom:none!important;font-weight:500;
+}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-cta{display:none!important;}
+  section{padding:4rem 1.5rem;}
+  .hero-inner,.capital-grid,.tarifs-grid,.contact-grid,.dark-block{grid-template-columns:1fr;}
+  .cards-grid,.broker-grid{grid-template-columns:1fr;}
+  footer{padding:2rem 1.5rem;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .cta-banner{margin:0 1.5rem 2rem;padding:3rem 1.5rem;}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:fadeUp .5s ease both;}
+.hero h1{animation:fadeUp .5s .1s ease both;}
+.hero-sub{animation:fadeUp .5s .2s ease both;}
+.hero-actions{animation:fadeUp .5s .3s ease both;}
+.hero-stats{animation:fadeUp .5s .4s ease both;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('accueil')">Sebask<span>Finance</span></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('apropos')">À propos</a></li>
+    <li><a href="#" onclick="showPage('methode')">La méthode</a></li>
+    <li><a href="#" onclick="showPage('copy')">Copy Trading</a></li>
+    <li><a href="#" onclick="showPage('tarifs')">Tarifs</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+    <li><a href="#" onclick="showPage('mentions')">Mentions légales</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="showPage('contact')" style="display:none;" id="nav-cta-desk">Rejoindre →</a>
+  <button class="nav-hamburger" onclick="toggleMenu()" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#" onclick="showPage('accueil');toggleMenu()">Accueil</a>
+  <a href="#" onclick="showPage('apropos');toggleMenu()">À propos</a>
+  <a href="#" onclick="showPage('methode');toggleMenu()">La méthode</a>
+  <a href="#" onclick="showPage('copy');toggleMenu()">Copy Trading</a>
+  <a href="#" onclick="showPage('tarifs');toggleMenu()">Tarifs</a>
+  <a href="#" onclick="showPage('contact');toggleMenu()">Contact</a>
+  <a href="#" onclick="showPage('mentions');toggleMenu()">Mentions légales</a>
+  <a href="#" class="nav-mobile-cta" onclick="showPage('contact');toggleMenu()">Rejoindre →</a>
+</div>
+
+<div class="disclaimer">⚠️ &nbsp;Le trading sur le Forex implique un risque de perte en capital. Les performances passées ne présagent pas des performances futures.</div>
+
+<!-- ACCUEIL -->
+<div id="page-accueil" class="page active">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-eyebrow">Scalping EUR/USD · Méthode Wyckoff Historique</p>
+          <h1>Copiez mes trades.<br><em>Gardez vos fonds.</em></h1>
+          <p class="hero-sub">Un copy trading transparent où vous restez 100% propriétaire de votre capital. Je suis rémunéré uniquement sur les gains que je génère pour vous.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn-primary" onclick="showPage('contact')">Prendre contact →</a>
+            <a href="#" class="btn-outline" onclick="showPage('copy')">Comment ça marche</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="trading-hero.jpg" alt="Trading Forex EUR/USD" style="width:100%;border-radius:20px;object-fit:cover;aspect-ratio:16/10;display:block;box-shadow:0 20px 60px rgba(35,97,173,0.15);">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(15,15,15,0.08);border:1px solid rgba(15,15,15,0.08);border-radius:14px;overflow:hidden;margin-top:1rem;">
+            <div style="background:var(--bg);padding:1.2rem 1rem;text-align:center;">
+              <div style="font-family:Inter,sans-serif;font-size:26px;font-weight:800;color:var(--black);letter-spacing:-1px;line-height:1;">1<span style="color:var(--blue);">%</span></div>
+              <div style="font-size:11.5px;color:var(--text3);margin-top:4px;">Risque max / trade</div>
+            </div>
+            <div style="background:var(--bg);padding:1.2rem 1rem;text-align:center;">
+              <div style="font-family:Inter,sans-serif;font-size:26px;font-weight:800;color:var(--black);letter-spacing:-1px;line-height:1;">2<span style="color:var(--blue);">h</span></div>
+              <div style="font-size:11.5px;color:var(--text3);margin-top:4px;">Lun. – Ven.</div>
+            </div>
+            <div style="background:var(--bg);padding:1.2rem 1rem;text-align:center;">
+              <div style="font-family:Inter,sans-serif;font-size:26px;font-weight:800;color:var(--black);letter-spacing:-1px;line-height:1;">25<span style="color:var(--blue);">%</span></div>
+              <div style="font-size:11.5px;color:var(--text3);margin-top:4px;">Sur gains uniquement</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg);">
+    <div class="container">
+      <div class="section-tag">Ce qui me différencie</div>
+      <h2 style="font-size:36px;font-weight:800;letter-spacing:-1.2px;">Un modèle rare dans le copy trading</h2>
+      <p class="lead" style="max-width:100%;">Trois principes non négociables qui fondent ma démarche.</p>
+      <div class="cards-grid">
+        <div class="card"><div class="card-num">01</div><h3>Vos fonds restent chez vous</h3><p>Votre capital est déposé sur votre propre compte chez FusionMarkets. Je n'y accède jamais. Vous retirez quand vous le souhaitez, hors position ouverte.</p></div>
+        <div class="card"><div class="card-num">02</div><h3>Rémunération à la performance</h3><p>Je perçois 25% uniquement sur les gains générés pour vous. Versés par le broker en fin de mois. Zéro gain = zéro frais. Aucun abonnement mensuel.</p></div>
+        <div class="card"><div class="card-num">03</div><h3>Transparence totale</h3><p>Chaque trade que je passe est répliqué à l'identique sur votre compte en temps réel. Vous voyez tout, en permanence, sans filtre.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Prêt à démarrer ?</h2>
+    <p>Prenons contact pour discuter de votre projet.</p>
+    <a href="#" class="btn-white" onclick="showPage('contact')">Prendre contact →</a>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<div id="page-apropos" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+
+      <div class="section-tag">À propos</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-1.5px;">Qui suis-je ?</h2>
+      <p class="lead">Trader indépendant, spécialisé sur la paire EUR/USD en scalping.</p>
+
+      <!-- BLOC INTRO -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:center;">
+        <div>
+          <h3 style="font-size:22px;font-weight:700;margin-bottom:1rem;letter-spacing:-0.5px;">Un parcours construit sur la compréhension, pas sur la chance</h3>
+          <p style="font-size:14px;color:var(--text2);line-height:1.9;margin-bottom:1rem;">Avant de placer le moindre euro sur les marchés, j'ai passé <strong style="color:var(--black);">quatre ans à me former</strong>. Pas à suivre des signaux ou des gourous, mais à chercher à comprendre réellement comment fonctionnent les marchés financiers.</p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.9;margin-bottom:1rem;">La question qui m'obsédait était simple : comment des volumes financiers aussi colossaux peuvent-ils être déplacés sur les marchés sans faire chuter drastiquement les prix ? Cette interrogation m'a conduit vers les travaux de <strong style="color:var(--black);">Richard Wyckoff</strong>, trader et analyste du début du XXe siècle, dont les méthodes restent d'une précision redoutable sur les marchés modernes.</p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.9;">J'ai étudié, testé, échoué, recommencé. Et depuis <strong style="color:var(--black);">septembre 2025</strong>, je trade en fonds propres de manière régulière et disciplinée.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;margin-bottom:.5rem;">Formation</p>
+            <p style="font-size:20px;font-weight:800;color:var(--black);letter-spacing:-0.5px;">4 ans</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;">Avant le premier trade en compte réel</p>
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;margin-bottom:.5rem;">En fonds propres depuis</p>
+            <p style="font-size:20px;font-weight:800;color:var(--black);letter-spacing:-0.5px;">Septembre 2025</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;">Trading quotidien, lundi au vendredi</p>
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;margin-bottom:.5rem;">Méthode</p>
+            <p style="font-size:20px;font-weight:800;color:var(--black);letter-spacing:-0.5px;">Wyckoff historique</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;">Dans sa forme originale et brute, sans dérivé SMC</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- POURQUOI CE SERVICE -->
+      <div style="margin-top:4rem;">
+        <div class="section-tag">Ma démarche</div>
+        <h2 style="font-size:34px;font-weight:800;letter-spacing:-1px;">Pourquoi proposer le copy trading ?</h2>
+        <p class="lead" style="max-width:100%;">Deux raisons, que je préfère vous exposer honnêtement plutôt que de les habiller.</p>
+
+        <div class="cards-grid" style="margin-top:2rem;">
+          <div class="card">
+            <div class="card-num" style="color:var(--bg2);">01</div>
+            <h3>Accélérer la croissance de mon capital</h3>
+            <p style="font-size:13.5px;color:var(--text2);line-height:1.75;">Le copy trading me permet d'augmenter plus rapidement mon capital de trading, et donc mes revenus. C'est une démarche entrepreneuriale claire, que je n'ai aucune raison de vous cacher.</p>
+          </div>
+          <div class="card">
+            <div class="card-num" style="color:var(--bg2);">02</div>
+            <h3>Mettre mes compétences au service d'autrui</h3>
+            <p style="font-size:13.5px;color:var(--text2);line-height:1.75;">Après quatre ans de formation et un travail acharné, je souhaite permettre à d'autres personnes d'investir intelligemment une partie de leur épargne, et d'en faire quelque chose de utile pour eux et pour ceux qui les entourent.</p>
+          </div>
+          <div class="card">
+            <div class="card-num" style="color:var(--bg2);">03</div>
+            <h3>Une relation fondée sur l'alignement d'intérêts</h3>
+            <p style="font-size:13.5px;color:var(--text2);line-height:1.75;">Je ne gagne que si vous gagnez. Ce modèle n'est pas un argument marketing, c'est une conviction : la seule façon de construire une relation durable est que nos intérêts soient parfaitement alignés.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHILOSOPHIE -->
+      <div style="margin-top:4rem;background:var(--black);border-radius:var(--radius);padding:3rem;">
+        <div class="section-tag" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.12);">Ma philosophie</div>
+        <h3 style="font-size:26px;font-weight:700;color:#fff;margin-top:.8rem;margin-bottom:2rem;">Ce en quoi je crois profondément</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+          <div style="padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);">
+            <p style="font-size:13px;font-weight:600;color:#fff;margin-bottom:.5rem;">La patience avant tout</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">On ne force pas le marché. On attend le bon moment, on prend sa position, on respecte son plan.</p>
+          </div>
+          <div style="padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);">
+            <p style="font-size:13px;font-weight:600;color:#fff;margin-bottom:.5rem;">La discipline fait la force</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">Les règles de gestion du risque ne sont pas négociables, quelle que soit la situation du marché.</p>
+          </div>
+          <div style="padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);">
+            <p style="font-size:13px;font-weight:600;color:#fff;margin-bottom:.5rem;">La transparence comme base</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">Vous savez exactement comment je trade, combien je prends, et comment votre argent est géré.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:3rem;text-align:center;">
+        <p style="font-size:15px;color:var(--text2);margin-bottom:1.5rem;">Une question sur mon parcours ou sur le copy trading ?</p>
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Prendre contact →</a>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- MÉTHODE -->
+<div id="page-methode" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+      <div class="section-tag">La méthode</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-1.5px;">La méthode</h2>
+      <p class="lead">Une approche rigoureuse, fondée sur la lecture du marché tel qu'il est.</p>
+      <div class="cards-grid">
+        <div class="card"><div class="card-num">W</div><h3>Wyckoff historique et pur</h3><p>La méthode originale de Richard Wyckoff dans sa forme brute et historique. Pas de dérivé SMC. La vraie lecture des phases d'accumulation et de distribution.</p></div>
+        <div class="card"><div class="card-num">V</div><h3>Volume à gamme fixe</h3><p>Un indicateur de volume à gamme fixe complète l'analyse Wyckoff pour affiner les points d'entrée. Le volume est l'outil de validation final avant chaque position.</p></div>
+        <div class="card"><div class="card-num">S</div><h3>Sessions ciblées</h3><p>Open Londres (8h30–11h30) et open New York (13h30–16h30). Ces fenêtres concentrent le maximum de liquidités et de mouvement directionnel sur l'EUR/USD.</p></div>
+      </div>
+      <div class="dark-block">
+        <div>
+          <div class="section-tag" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.1);">Discipline</div>
+          <h3 style="font-size:26px;font-weight:700;color:#fff;margin-top:.8rem;margin-bottom:.8rem;">Ce que je ne fais jamais</h3>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.8;">La discipline fait bel et bien la force principale du trading.</p>
+        </div>
+        <div class="dont-list">
+          <div class="dont-item"><span class="x">✕</span><span>Trader les annonces économiques majeures (3 étoiles)</span></div>
+          <div class="dont-item"><span class="x">✕</span><span>Dépasser 2 heures de trading par jour</span></div>
+          <div class="dont-item"><span class="x">✕</span><span>Ignorer les règles de drawdown</span></div>
+          <div class="dont-item"><span class="x">✕</span><span>Surtrader pour rattraper des pertes</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg);">
+    <div class="container">
+      <div class="section-tag">Gestion du risque</div>
+      <h2 style="font-size:36px;font-weight:800;letter-spacing:-1.2px;">Drawdown contrôlé en trois niveaux</h2>
+      <p class="lead" style="max-width:100%;">Un protocole clair qui réduit automatiquement l'exposition en cas de série négative.</p>
+      <div class="risk-steps">
+        <div class="risk-step"><div class="risk-badge badge-green">N</div><div class="risk-info"><strong>Mode normal, Risque 1% par trade</strong><span>Conditions normales de trading. Chaque position risque 1% du capital total.</span></div><div class="risk-pct">1%</div></div>
+        <div class="risk-step"><div class="risk-badge badge-amber">DD1</div><div class="risk-info"><strong>Drawdown 1 (−4%), Risque réduit à 0,5%</strong><span>Déclenché après 4 trades perdants consécutifs. Le risque est immédiatement divisé par 2.</span></div><div class="risk-pct">0,5%</div></div>
+        <div class="risk-step"><div class="risk-badge badge-red">DD2</div><div class="risk-info"><strong>Drawdown 2 (−6%), Risque minimal 0,25%</strong><span>8 trades perdants consécutifs, scénario théorique extrême, jamais atteint en conditions réelles.</span></div><div class="risk-pct">0,25%</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-tag">Structure du capital</div>
+      <h2 style="font-size:32px;font-weight:800;letter-spacing:-1px;">Sécurisation du capital</h2>
+      <p class="lead">Seuls 25% du capital de trading sont déposés chez le broker.</p>
+      <div class="capital-grid">
+        <div class="capital-card featured"><h3>Capital déposé chez le broker</h3><p>Seulement 25% du capital total est exposé chez FusionMarkets. Pour 10 000 $ tradés, seuls 2 500 $ sont déposés. Le levier 500:1 permet d'opérer sur la pleine taille.</p><div class="cap-val">25%</div><div class="cap-note">du capital total déposé</div></div>
+        <div class="capital-card"><h3>Pourquoi cette structure ?</h3><p>Cette approche minimise le risque opérationnel lié au broker, tout en permettant une exposition complète grâce au levier. Le capital non déposé reste entièrement sous votre contrôle.</p><div class="cap-val">75%</div><div class="cap-note">hors broker, sécurisé</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COPY TRADING -->
+<div id="page-copy" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+      <div class="section-tag">Comment ça marche</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-1.5px;">Le copy trading en 5 étapes</h2>
+      <p class="lead">Un processus simple, géré en grande partie par FusionMarkets.</p>
+      <div class="copy-steps">
+        <div class="copy-step"><div class="step-num">1</div><div><h3>Vous ouvrez un compte chez FusionMarkets</h3><p>FusionMarkets héberge la relation de copy trading. Vous ouvrez votre propre compte en votre nom via mon lien d'affiliation, c'est obligatoire pour que la liaison copy trading soit activée correctement. Je n'ai aucun accès à vos identifiants ni à vos fonds.</p></div></div>
+        <div class="copy-step"><div class="step-num">2</div><div><h3>Vous vous liez à mon compte de trading</h3><p>Via la plateforme de copy trading de FusionMarkets, votre compte est connecté au mien. Chaque trade que j'exécute est automatiquement répliqué sur votre compte, proportionnellement à votre capital.</p></div></div>
+        <div class="copy-step"><div class="step-num">3</div><div><h3>Je trade, vous copiez en temps réel</h3><p>Du lundi au vendredi, 2h maximum par jour sur les sessions de Londres et New York. Vos positions s'ouvrent et se ferment automatiquement, en miroir des miennes. Vous n'avez rien à faire.</p></div></div>
+        <div class="copy-step"><div class="step-num">4</div><div><h3>FusionMarkets calcule et verse ma commission</h3><p>En fin de mois, le broker calcule 25% des gains générés sur votre compte et me les verse directement. Vous ne faites aucun virement. Mois sans gain = aucune commission.</p></div></div>
+        <div class="copy-step"><div class="step-num">5</div><div><h3>Vous retirez quand vous voulez</h3><p>Votre capital vous appartient à 100%. Vous pouvez retirer tout ou partie de vos fonds à tout moment, sauf si une position est en cours. Aucune période de blocage, aucune condition.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA REJOINDRE -->
+  <section style="padding-top:0;padding-bottom:0;">
+    <div class="container">
+      <div style="background:var(--black);border-radius:var(--radius);padding:3rem;text-align:center;">
+        <div class="section-tag" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.12);">Prêt à démarrer ?</div>
+        <h2 style="font-size:32px;font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:.8rem;">Rejoignez le copy trading</h2>
+        <p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 2rem;line-height:1.8;">Contactez-moi pour démarrer. Je vous accompagne dans l'ouverture de votre compte et vous transmets mon lien d'affiliation pour activer la liaison copy trading.</p>
+        <a href="#" class="btn-white" onclick="showPage('contact');document.getElementById('sujet').value='Rejoindre le copy trading';" style="background:var(--white);color:var(--black);border:none;padding:13px 28px;font-family:Inter,sans-serif;font-size:14.5px;font-weight:500;border-radius:50px;cursor:pointer;display:inline-block;transition:background .2s,color .2s;">Rejoindre le copy trading →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg);padding-top:3rem;">
+    <div class="container">
+      <div class="section-tag">Broker partenaire</div>
+      <h2 style="font-size:32px;font-weight:800;letter-spacing:-1px;">Pourquoi FusionMarkets ?</h2>
+      <p class="lead" style="max-width:100%;">Un broker régulé, frais ultra compétitifs et exécution parfaite.<br>J'ai mis deux ans à trouver un broker sérieux, digne de ce nom, FusionMarkets est celui-là.</p>
+      <div class="broker-grid">
+        <div class="broker-card"><div class="broker-icon">🏦</div><h3>Broker régulé</h3><p>Régulé par l'ASIC (Australie) et la VFSC. Vos fonds sont ségrégués et protégés indépendamment des fonds du broker.</p></div>
+        <div class="broker-card"><div class="broker-icon">⚡</div><h3>Exécution rapide</h3><p>Compte RAW à 2,5 $ par lot, sans spread. Une exécution ultra-rapide, essentielle pour le scalping en méthode Wyckoff.</p></div>
+        <div class="broker-card"><div class="broker-icon">🛡️</div><h3>No Dealing Desk</h3><p>FusionMarkets est un broker No Dealing Desk, il ne prend jamais de position contre ses clients. Vos intérêts et les siens sont parfaitement alignés.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TARIFS -->
+<div id="page-tarifs" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+      <div class="section-tag">Tarification</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-1.5px;">Simple et transparent</h2>
+      <p class="lead" style="max-width:100%;">Deux formules selon votre capital. Dans les deux cas, les frais sont intégralement remboursés par FusionMarkets.</p>
+
+      <div class="tarifs-grid" style="margin-top:3rem;">
+
+        <!-- STANDARD -->
+        <div class="tarif-card featured" style="display:flex;flex-direction:column;position:relative;">
+          <div class="featured-badge">Compte Standard</div>
+
+          <div style="margin-top:1.5rem;min-height:60px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Dépôt minimum</p>
+            <p style="font-size:22px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">5 000 $</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:110px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Frais de mise en place</p>
+            <p style="font-size:32px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">500 $</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.7;">250 $ versés par FusionMarkets sur mon compte.<br>250 $ à régler par le client, remboursés après 50 lots tradés.</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:110px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Frais mensuels broker</p>
+            <p style="font-size:32px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">10 $</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.7;">Prélevés en début de mois par FusionMarkets.<br>Remboursés après 2,5 lots tradés, soit très rapidement.</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:90px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Commission sur gains</p>
+            <p style="font-size:32px;font-weight:800;color:var(--blue);letter-spacing:-1px;margin-top:4px;">25 %</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;">Calculée et versée automatiquement par FusionMarkets en fin de mois. Mois sans gain = 0 $.</p>
+          </div>
+
+          <div style="flex:1;"></div>
+          <a href="#" class="btn-primary" style="display:block;text-align:center;margin-top:2rem;" onclick="showPage('contact')">Démarrer →</a>
+        </div>
+
+        <!-- ESSENTIEL -->
+        <div class="tarif-card" style="display:flex;flex-direction:column;position:relative;border:1.5px solid var(--border);">
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--bg2);color:var(--text2);font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 16px;border-radius:50px;white-space:nowrap;border:1px solid var(--border);">Compte Essentiel</div>
+
+          <div style="margin-top:1.5rem;min-height:60px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Dépôt minimum</p>
+            <p style="font-size:22px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">500 $</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:110px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Frais de mise en place</p>
+            <p style="font-size:32px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">100 $</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.7;">50 $ versés par FusionMarkets sur mon compte.<br>50 $ à régler par le client, remboursés après volume suffisant.</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:110px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Frais mensuels broker</p>
+            <p style="font-size:32px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">10 $</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;line-height:1.7;">Prélevés en début de mois par FusionMarkets.<br>Remboursés après 2,5 lots tradés, soit très rapidement.</p>
+          </div>
+
+          <div style="height:1px;background:var(--border);margin:1.5rem 0;"></div>
+
+          <div style="min-height:90px;">
+            <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);font-weight:600;">Commission sur gains</p>
+            <p style="font-size:32px;font-weight:800;color:var(--black);letter-spacing:-1px;margin-top:4px;">30 %</p>
+            <p style="font-size:13px;color:var(--text2);margin-top:4px;">Calculée et versée automatiquement par FusionMarkets en fin de mois. Mois sans gain = 0 $.</p>
+          </div>
+
+          <div style="flex:1;"></div>
+          <a href="#" class="btn-outline" style="display:block;text-align:center;margin-top:2rem;" onclick="showPage('contact')">Démarrer →</a>
+        </div>
+
+      </div>
+
+      <div style="margin-top:2rem;padding:1.5rem 2rem;background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:var(--radius);display:flex;gap:1rem;align-items:flex-start;">
+        <span style="font-size:18px;flex-shrink:0;">💡</span>
+        <p style="font-size:13px;color:var(--blue);line-height:1.8;">Vos fonds restent sur votre compte à tout moment. Vous ne faites aucun virement vers moi. Toutes les commissions et remboursements sont gérés directement par FusionMarkets.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+      <div class="section-tag">Contact</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-1.5px;">Parlons-en</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Une question ? Un projet ?</h3>
+          <p>Je réponds personnellement à chaque message. Si vous souhaitez rejoindre le copy trading ou en savoir plus sur la méthode, n'hésitez pas.</p>
+          <p style="font-size:13px;color:var(--text3);">Délai de réponse : sous 24h en jours ouvrés.</p>
+          <div class="contact-methods">
+            <a href="mailto:sebaskbusiness@protonmail.com" class="contact-method"><div class="contact-icon">✉️</div><div><div class="contact-method-name">Email</div><div class="contact-method-detail">sebaskbusiness@protonmail.com</div></div></a>
+            <a href="https://wa.me/33667296492" class="contact-method" target="_blank"><div class="contact-icon">📱</div><div><div class="contact-method-name">WhatsApp</div><div class="contact-method-detail">Cliquer pour ouvrir une conversation</div></div></a>
+          </div>
+          <div class="avail-box">
+            <p>Disponibilités</p>
+            <p>Lundi – Vendredi<br>Hors sessions de trading<br>(avant 9h · entre 11h et 13h30 · après 16h)</p>
+          </div>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/xykayvjp" method="POST">
+          <div class="form-group"><label>Prénom et nom</label><input type="text" name="name" placeholder="Jean Dupont" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="vous@email.com" required></div>
+          <div class="form-group"><label>Sujet</label><select name="sujet"><option value="">Sélectionner...</option><option>Rejoindre le copy trading</option><option>Informations générales</option><option>Question sur la méthode</option><option>Autre</option></select></div>
+          <div class="form-group"><label>Capital envisagé (optionnel)</label><select name="capital"><option value="">Sélectionner...</option><option>5 000 $ – 10 000 $</option><option>10 000 $ – 25 000 $</option><option>25 000 $ et plus</option><option>Je ne sais pas encore</option></select></div>
+          <div class="form-group"><label>Message</label><textarea name="message" placeholder="Votre message..." required></textarea></div>
+          <button type="submit" class="form-submit">Envoyer le message →</button>
+          <p class="form-note">Vos données ne sont jamais partagées ni revendues.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MENTIONS LÉGALES -->
+<div id="page-mentions" class="page">
+  <section style="padding-top:8rem;">
+    <div class="container">
+      <div class="section-tag">Juridique</div>
+      <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;">Mentions légales &amp;<br>politique de confidentialité</h2>
+      <div class="mentions-content">
+        <h3>1. Éditeur du site</h3>
+        <p>Nom commercial : Sebask Finance<br>Responsable de la publication : Sébastien Sobanski<br>Statut juridique : Auto-entrepreneur (micro-entreprise)<br>SIREN : 851 813 311<br>Siège social : Saintes (17100), France<br>Email : <a href="mailto:sebaskbusiness@protonmail.com">sebaskbusiness@protonmail.com</a><br>Site web : www.sebask-finance.com</p>
+        <h3>2. Hébergement</h3>
+        <p>Ce site est hébergé par GitHub Pages, GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+        <h3>3. Activité et nature des services</h3>
+        <p>Sebask Finance propose un service de copy trading sur le marché des changes (Forex), exclusivement sur la paire EUR/USD, via la plateforme du broker FusionMarkets.</p>
+        <ul>
+          <li>Sébastien Sobanski ne détient à aucun moment les fonds des clients.</li>
+          <li>Les capitaux sont déposés sur les comptes personnels des clients, directement auprès de FusionMarkets.</li>
+          <li>La commission de 25% sur les gains est calculée et versée directement par FusionMarkets à Sebask Finance, sans intervention du client.</li>
+          <li>Sebask Finance n'est pas gestionnaire de portefeuille et ne détient pas d'agrément AMF.</li>
+        </ul>
+        <h3>4. Avertissement sur les risques financiers</h3>
+        <div class="warning-box"><p>⚠️ Le trading sur le marché des changes (Forex) comporte un risque élevé de perte en capital. Les performances passées ne constituent pas une garantie des performances futures. Les informations présentées sur ce site sont fournies à titre informatif uniquement et ne constituent pas un conseil en investissement. Investissez uniquement des sommes que vous pouvez vous permettre de perdre.</p></div>
+        <h3>5. Propriété intellectuelle</h3>
+        <p>L'ensemble des contenus de ce site sont la propriété exclusive de Sebask Finance / Sébastien Sobanski. Toute reproduction totale ou partielle est interdite sans autorisation préalable écrite.</p>
+        <h3>6. Politique de confidentialité, RGPD</h3>
+        <p>Conformément au RGPD (UE 2016/679), vous disposez des droits d'accès, rectification, effacement, portabilité et opposition sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes. Elles ne sont ni vendues ni transmises à des tiers. Durée de conservation : 3 ans maximum.</p>
+        <p style="margin-top:.6rem;">Pour exercer vos droits : <a href="mailto:sebaskbusiness@protonmail.com">sebaskbusiness@protonmail.com</a></p>
+        <h3>7. Cookies</h3>
+        <p>Ce site n'utilise pas de cookies de traçage ou publicitaires.</p>
+        <h3>8. Nature de la rémunération</h3>
+        <p>Sébastien Sobanski intervient exclusivement en qualité d'<strong>apporteur d'affaires</strong> auprès de FusionMarkets. Sa rémunération est versée directement par le broker sous forme de commission sur les gains générés pour les clients, sans aucune manipulation ni détention des fonds confiés. Cette activité ne constitue pas une gestion de portefeuille au sens de la réglementation financière en vigueur.</p>
+
+        <h3>9. Clause de non-conseil</h3>
+        <p>Les informations, performances et contenus présentés sur ce site ne constituent en aucun cas un conseil en investissement au sens de la réglementation de l'Autorité des Marchés Financiers (AMF). Sebask Finance ne détient aucun agrément AMF. Toute décision d'investissement reste sous l'entière responsabilité de l'utilisateur. Il est recommandé de consulter un conseiller financier indépendant agréé avant tout engagement financier.</p>
+
+        <h3>10. Conditions Générales d'Utilisation</h3>
+        <p>L'accès et l'utilisation de ce site impliquent l'acceptation pleine et entière des présentes mentions légales. Sebask Finance se réserve le droit de modifier à tout moment le contenu du site et les présentes conditions, sans préavis. L'utilisateur s'engage à utiliser ce site conformément aux lois et règlements en vigueur. Sebask Finance ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation du site ou des informations qui y sont présentées.</p>
+
+        <h3>11. Médiation des litiges</h3>
+        <p>Conformément aux articles L.616-1 et R.616-1 du Code de la consommation, Sebask Finance propose un dispositif de médiation de la consommation. En cas de litige non résolu à l'amiable, le consommateur peut recourir gratuitement au médiateur suivant :</p>
+        <p style="margin-top:.6rem;"><strong>Médiateur de la consommation :</strong> CM2C (Centre de Médiation de la Consommation de Conciliateurs de Justice)<br>
+        Site : <a href="https://www.cm2c.net" target="_blank">www.cm2c.net</a><br>
+        Email : cm2c@cm2c.net<br>
+        Adresse : 14 rue Saint Jean, 75017 Paris</p>
+        <p style="margin-top:.6rem;">La saisine du médiateur doit intervenir dans un délai d'un an à compter de la réclamation écrite adressée à Sebask Finance.</p>
+
+        <h3>12. Droit applicable</h3>
+        <p>Le présent site est soumis au droit français. Tout litige sera soumis à la compétence exclusive des tribunaux français.</p>
+        <p style="margin-top:1.5rem;font-size:12px;color:var(--text3);">Dernière mise à jour : Juin 2026</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo" onclick="showPage('accueil')">Sebask<span>Finance</span></a>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('apropos')">À propos</a>
+      <a href="#" onclick="showPage('methode')">Méthode</a>
+      <a href="#" onclick="showPage('copy')">Copy Trading</a>
+      <a href="#" onclick="showPage('tarifs')">Tarifs</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" onclick="showPage('mentions')">Mentions légales</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 Sebask Finance, Sébastien Sobanski, Auto-entrepreneur, SIREN 851 813 311, Saintes (17100)<br>
+      Le trading Forex comporte un risque de perte en capital. Les performances passées ne garantissent pas les résultats futurs.
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById('page-'+id);
+  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+}
+function toggleMenu(){
+  const menu=document.getElementById('nav-mobile');
+  const burger=document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+</script>
+</body>
+</html>
